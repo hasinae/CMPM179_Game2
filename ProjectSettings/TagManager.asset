@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Grass
+  - Cane
+  - CampSite
+  - Bear
+  - BearHome
   layers:
   - Default
   - TransparentFX
