@@ -20,6 +20,10 @@ public class Movement : MonoBehaviour
 
     public AudioSource audioSource;  // Reference to AudioSource component
     public AudioClip walkingSound;   // Walking sound effect
+    public AudioClip canePickupSound; // Cane pick up sound effect
+    public AudioClip winSound;        // Win sound effect
+    public AudioClip loseSound;       // Lose sound effect
+    public AudioClip reminderSound;   // Reminder sound effect
 
     private bool isWalking = false;   // Keep track of whether the player is walking
 
@@ -63,6 +67,7 @@ public class Movement : MonoBehaviour
             StartCoroutine(DisplayText(caneText, 3f));
 
             // Play some sort of pick up sound
+            audioSource.PlayOneShot(canePickupSound);
             Debug.Log("Pickup Cane");
         }
         else if(collision.transform.CompareTag("CampSite"))
@@ -72,12 +77,14 @@ public class Movement : MonoBehaviour
                 StartCoroutine(DisplayText(winText, 60f));
                 retryButton.gameObject.SetActive(true);
                 // Play a win sound
+                audioSource.PlayOneShot(winSound);
                 Debug.Log("Win!");
             }
             else
             {
                 StartCoroutine(DisplayText(needCaneText, 3f));
                 // Play some beep sound or something
+                audioSource.PlayOneShot(reminderSound);
                 Debug.Log("Get cane first");
             }
         }
@@ -88,6 +95,7 @@ public class Movement : MonoBehaviour
             playerRenderer.enabled = false;
 
             // Maybe play a sound of bear or player dying lol
+            audioSource.PlayOneShot(loseSound);
             Debug.Log("You died");
         }
     }

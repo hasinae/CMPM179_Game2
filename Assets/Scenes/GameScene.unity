@@ -2391,6 +2391,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b441fe0f16d94e66a5e26ba36ce8bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grassPaths: []
+  audioSource: {fileID: 205810624}
+  bearSound: {fileID: 8300000, guid: 4f694de0ccd7d46fa8d07d92e832d933, type: 3}
+  grassSound: {fileID: 8300000, guid: debd497f2de8e4876aa0669f92f2a9cb, type: 3}
+  gravelSound: {fileID: 8300000, guid: 90ed7bce82a6f412f950b74889cea9d4, type: 3}
 --- !u!114 &205810620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2413,6 +2418,10 @@ MonoBehaviour:
   retryButton: {fileID: 357270875}
   audioSource: {fileID: 205810624}
   walkingSound: {fileID: 8300000, guid: 053c7f1f23b2c4e4bbe16d99aed61eb2, type: 3}
+  canePickupSound: {fileID: 8300000, guid: 18d6a35d5bc0f4091a4e3643f63c20a9, type: 3}
+  winSound: {fileID: 8300000, guid: 38cae0a94186b441b88baa4ee23f8c07, type: 3}
+  loseSound: {fileID: 8300000, guid: 696538fabd08b4186a55ef2a5bebf3e0, type: 3}
+  reminderSound: {fileID: 8300000, guid: ddfa6763e9e2a4d6c8864cb825b508a2, type: 3}
 --- !u!23 &205810621
 MeshRenderer:
   m_ObjectHideFlags: 0
