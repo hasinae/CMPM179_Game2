@@ -18,6 +18,12 @@ public class Movement : MonoBehaviour
     public TMP_Text loseText;
     public Button retryButton;
 
+    public AudioSource audioSource;  // Reference to AudioSource component
+    public AudioClip walkingSound;   // Walking sound effect
+
+    private bool isWalking = false;   // Keep track of whether the player is walking
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +37,21 @@ public class Movement : MonoBehaviour
         {
             Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             controller.Move(move * Time.deltaTime * movementSpeed);
+
+            if (move.magnitude > 0 && !isWalking)
+            {
+                // Player has started moving
+                isWalking = true;
+                audioSource.clip = walkingSound;
+                audioSource.loop = true;  // Loop the walking sound while the player is moving
+                audioSource.Play();
+            }
+            else if (move.magnitude == 0 && isWalking)
+            {
+                // Player has stopped moving
+                isWalking = false;
+                audioSource.Stop();
+            }
         }
     }
 
